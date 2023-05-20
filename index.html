@@ -62,6 +62,9 @@
                 const buttonId = 'button' + i;
                 const button = document.getElementById(buttonId);
                 button.onclick = function() {
+                    if (!confirm('Are you sure? This action cannot be undone.')) {
+                        return;
+                    }
                     this.disabled = true;
                     this.className = "btn btn-secondary btn-custom";
                     localStorage.setItem(buttonId, true);
